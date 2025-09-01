@@ -11,9 +11,6 @@ src/
 ├── models/          # Modelos de dados
 ├── services/        # Serviços de negócio
 └── utils/           # Utilitários
-
-examples/            # Exemplos de uso
-tests/              # Testes unitários
 ```
 
 ## Uso Rápido
