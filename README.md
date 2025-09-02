@@ -1,193 +1,193 @@
-# Senac Content Migration System
+# Sistema de Migração de Conteúdo Senac
 
-Enterprise-grade web scraping and content migration solution for Senac-DF portal. This system provides automated content extraction from the Senac-DF website and seamless migration to Liferay DXP with document management and structured content creation.
+Solução de web scraping e migração de conteúdo de nível empresarial para o portal Senac-DF. Este sistema fornece extração automatizada de conteúdo do site do Senac-DF e migração contínua para Liferay DXP com gerenciamento de documentos e criação de conteúdo estruturado.
 
-## Features
+## Funcionalidades
 
-- **Web Scraping**: Automated content extraction from Senac-DF website
-- **Content Migration**: Professional migration to Liferay DXP
-- **Document Management**: Automated folder creation and file uploads
-- **Structured Content**: Automated creation of structured content with proper field mapping
-- **Batch Processing**: Configurable batch processing with error handling
-- **Professional Architecture**: Enterprise-grade code structure with comprehensive logging
+- **Web Scraping**: Extração automatizada de conteúdo do site do Senac-DF
+- **Migração de Conteúdo**: Migração profissional para Liferay DXP
+- **Gerenciamento de Documentos**: Criação automatizada de pastas e upload de arquivos
+- **Conteúdo Estruturado**: Criação automatizada de conteúdo estruturado com mapeamento adequado de campos
+- **Processamento em Lotes**: Processamento configurável em lotes com tratamento de erros
+- **Arquitetura Profissional**: Estrutura de código de nível empresarial com logging abrangente
 
-## System Components
+## Componentes do Sistema
 
-### 1. Web Scraping System
-- Extract news articles from Senac-DF portal
-- Batch processing with rate limiting
-- Comprehensive error handling and retry logic
+### 1. Sistema de Web Scraping
+- Extração de artigos de notícias do portal Senac-DF
+- Processamento em lotes com limitação de taxa
+- Tratamento abrangente de erros e lógica de retry
 
-### 2. Content Migration System
-- Automated migration to Liferay DXP
-- Document folder creation and management
-- Structured content creation with image references
-- Professional logging and statistics
+### 2. Sistema de Migração de Conteúdo
+- Migração automatizada para Liferay DXP
+- Criação e gerenciamento de pastas de documentos
+- Criação de conteúdo estruturado com referências de imagem
+- Logging profissional e estatísticas
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 senac_scrap/
-├── scraper.py                          # Web scraping entry point
-├── content_migration_system.py         # Liferay migration system (main)
-├── config_manager.py                   # Configuration management
-├── noticias_final.json                 # Scraped content data
-├── .env                                # Environment configuration
-├── .env.example                        # Configuration template
+├── scraper.py                          # Ponto de entrada do web scraping
+├── content_migration_system.py         # Sistema de migração Liferay (principal)
+├── config_manager.py                   # Gerenciamento de configuração
+├── noticias_final.json                 # Dados de conteúdo extraídos
+├── .env                                # Configuração de ambiente
+├── .env.example                        # Template de configuração
 └── src/
     ├── config/
-    │   ├── scraping_config.py          # Scraping configuration
-    │   └── liferay_config.py           # Liferay configuration
+    │   ├── scraping_config.py          # Configuração de scraping
+    │   └── liferay_config.py           # Configuração do Liferay
     ├── core/
-    │   ├── content_extractor.py        # Content extraction logic
-    │   └── http_client.py              # HTTP client utilities
+    │   ├── content_extractor.py        # Lógica de extração de conteúdo
+    │   └── http_client.py              # Utilitários de cliente HTTP
     ├── models/
-    │   └── news_article.py             # Data models
+    │   └── news_article.py             # Modelos de dados
     ├── services/
-    │   ├── scraping_service.py         # Scraping services
-    │   ├── liferay_client.py           # Liferay API client
-    │   ├── document_service.py         # Document management
-    │   ├── folder_service.py           # Folder management
-    │   ├── structured_content_service.py    # Content creation
-    │   └── structured_content_folder_service.py  # Content folder management
+    │   ├── scraping_service.py         # Serviços de scraping
+    │   ├── liferay_client.py           # Cliente API Liferay
+    │   ├── document_service.py         # Gerenciamento de documentos
+    │   ├── folder_service.py           # Gerenciamento de pastas
+    │   ├── structured_content_service.py    # Criação de conteúdo
+    │   └── structured_content_folder_service.py  # Gerenciamento de pastas de conteúdo
     └── utils/
-        ├── file_handler.py             # File utilities
-        ├── rate_limiter.py             # Rate limiting
-        └── statistics.py               # Statistics tracking
+        ├── file_handler.py             # Utilitários de arquivo
+        ├── rate_limiter.py             # Limitação de taxa
+        └── statistics.py               # Rastreamento de estatísticas
 ```
 
-## Quick Start
+## Início Rápido
 
-### Prerequisites
+### Pré-requisitos
 
 1. Python 3.8+
-2. Required dependencies (install via requirements.txt if available)
-3. Liferay DXP instance (for migration)
-4. Environment configuration
+2. Dependências necessárias (instalar via requirements.txt se disponível)
+3. Instância Liferay DXP (para migração)
+4. Configuração de ambiente
 
-### Environment Configuration
+### Configuração de Ambiente
 
-Copy `.env.example` to `.env` and configure:
+Copie `.env.example` para `.env` e configure:
 
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` with your configuration:
+Edite `.env` com sua configuração:
 
 ```bash
-# Liferay Configuration
+# Configuração Liferay
 LIFERAY_BASE_URL=http://localhost:8080
 LIFERAY_SITE_ID=20117
-LIFERAY_USERNAME=your-username
-LIFERAY_PASSWORD=your-password
+LIFERAY_USERNAME=seu-usuario
+LIFERAY_PASSWORD=sua-senha
 
-# Document Library Configuration
+# Configuração da Biblioteca de Documentos
 LIFERAY_PARENT_FOLDER_ID=32365
 
-# Structured Content Configuration
+# Configuração de Conteúdo Estruturado
 STRUCTURED_CONTENT_STRUCTURE_ID=40374
 STRUCTURED_CONTENT_PARENT_FOLDER_ID=40384
 
-# Processing Configuration
+# Configuração de Processamento
 BATCH_SIZE=1
 BATCH_DELAY=2.0
-DEV_MODE=True  # Set to False for production
+DEV_MODE=True  # Definir como False para produção
 MAX_DEV_ITEMS=3
 ```
 
-## Usage
+## Uso
 
 ### 1. Web Scraping
 
-Extract content from Senac-DF website:
+Extrair conteúdo do site do Senac-DF:
 
 ```bash
-# Run the web scraper
+# Executar o web scraper
 python3 scraper.py
 ```
 
-This will:
-- Read URLs from `senac_urls.txt`
-- Extract content from each URL
-- Save results to `noticias_final.json`
-- Generate scraping statistics and logs
+Isso irá:
+- Ler URLs do `senac_urls.txt`
+- Extrair conteúdo de cada URL
+- Salvar resultados em `noticias_final.json`
+- Gerar estatísticas de scraping e logs
 
-### 2. Content Migration
+### 2. Migração de Conteúdo
 
-Migrate scraped content to Liferay:
+Migrar conteúdo extraído para o Liferay:
 
 ```bash
-# Run the migration system
+# Executar o sistema de migração
 python3 content_migration_system.py
 ```
 
-This will:
-- Create document folders for each news item
-- Upload featured images and content images
-- Create structured content folders within the "Noticias" parent folder
-- Create structured content with proper field mapping (`img` and `content` fields)
-- Generate comprehensive migration statistics
+Isso irá:
+- Criar pastas de documentos para cada item de notícia
+- Fazer upload de imagens em destaque e imagens de conteúdo
+- Criar pastas de conteúdo estruturado dentro da pasta pai "Noticias"
+- Criar conteúdo estruturado com mapeamento adequado de campos (`img` e `content`)
+- Gerar estatísticas abrangentes de migração
 
-### 3. Development vs Production Mode
+### 3. Modo de Desenvolvimento vs Produção
 
-**Development Mode** (default):
-- Processes only 3 items for testing
-- Detailed debug logging
-- Set `DEV_MODE=True` in `.env`
+**Modo de Desenvolvimento** (padrão):
+- Processa apenas 3 itens para teste
+- Logging detalhado de debug
+- Definir `DEV_MODE=True` no `.env`
 
-**Production Mode**:
-- Processes all items in the dataset
-- Standard logging level
-- Set `DEV_MODE=False` in `.env`
+**Modo de Produção**:
+- Processa todos os itens do conjunto de dados
+- Nível padrão de logging
+- Definir `DEV_MODE=False` no `.env`
 
-## Advanced Configuration
+## Configuração Avançada
 
-### Scraping Configuration
+### Configuração de Scraping
 
 ```python
 from src.config.scraping_config import ScrapingConfig
 from src.senac_scraper import SenacScraper
 
 config = ScrapingConfig(
-    max_workers=6,                    # Concurrent workers
-    delay_between_requests=0.3,       # Rate limiting
-    max_retries=3,                    # Retry attempts
-    timeout=20                        # Request timeout
+    max_workers=6,                    # Workers concorrentes
+    delay_between_requests=0.3,       # Limitação de taxa
+    max_retries=3,                    # Tentativas de retry
+    timeout=20                        # Timeout de requisição
 )
 
 scraper = SenacScraper(scraping_config=config)
 ```
 
-### Migration Configuration
+### Configuração de Migração
 
-Configuration is managed through environment variables and the `config_manager.py` system:
+A configuração é gerenciada através de variáveis de ambiente e do sistema `config_manager.py`:
 
 ```python
 from config_manager import ConfigurationManager
 
-# Load development configuration
+# Carregar configuração de desenvolvimento
 config = ConfigurationManager.get_development_config()
 
-# Load production configuration
+# Carregar configuração de produção
 config = ConfigurationManager.get_production_config()
 ```
 
-## Content Structure
+## Estrutura de Conteúdo
 
-### Scraped Data Format
+### Formato de Dados Extraídos
 ```json
 {
-  "url": "https://example.com/news-article",
-  "title": "Article Title",
-  "author": "Author Name",
+  "url": "https://exemplo.com/artigo-noticia",
+  "title": "Título do Artigo",
+  "author": "Nome do Autor",
   "date": "28/05/2023",
-  "featured_image": "https://example.com/image.jpg",
-  "content": "<p>Article content...</p>",
+  "featured_image": "https://exemplo.com/imagem.jpg",
+  "content": "<p>Conteúdo do artigo...</p>",
   "content_images": [
     {
-      "src": "https://example.com/content-image.jpg",
-      "alt": "Image description",
+      "src": "https://exemplo.com/imagem-conteudo.jpg",
+      "alt": "Descrição da imagem",
       "width": "1024",
       "height": "682"
     }
@@ -195,56 +195,56 @@ config = ConfigurationManager.get_production_config()
 }
 ```
 
-### Liferay Structure Mapping
-- **Document Folders**: Created for each news item to store images
-- **Structured Content Folders**: Created within "Noticias" parent folder
-- **Structured Content Fields**:
-  - `img`: Featured image reference (field reference: "img")
-  - `content`: Rich text content (field reference: "content")
+### Mapeamento da Estrutura Liferay
+- **Pastas de Documentos**: Criadas para cada item de notícia para armazenar imagens
+- **Pastas de Conteúdo Estruturado**: Criadas dentro da pasta pai "Noticias"
+- **Campos de Conteúdo Estruturado**:
+  - `img`: Referência de imagem em destaque (referência do campo: "img")
+  - `content`: Conteúdo de texto rico (referência do campo: "content")
 
-## Monitoring and Logging
+## Monitoramento e Logging
 
-### Log Files
-- `scraper.log`: Web scraping operations
-- `liferay_content_processor.log`: Migration operations
+### Arquivos de Log
+- `scraper.log`: Operações de web scraping
+- `liferay_content_processor.log`: Operações de migração
 
-### Statistics Tracking
-The migration system provides comprehensive statistics:
-- Total items processed
-- Success/failure rates
-- Processing duration
-- Document folders created
-- Images uploaded
-- Content folders created
-- Structured content items created
+### Rastreamento de Estatísticas
+O sistema de migração fornece estatísticas abrangentes:
+- Total de itens processados
+- Taxas de sucesso/falha
+- Duração do processamento
+- Pastas de documentos criadas
+- Imagens carregadas
+- Pastas de conteúdo criadas
+- Itens de conteúdo estruturado criados
 
-## Error Handling
+## Tratamento de Erros
 
-- **Graceful Degradation**: System continues processing even if individual items fail
-- **Retry Logic**: Automatic retry for transient failures
-- **Comprehensive Logging**: Detailed error information for troubleshooting
-- **Fallback Mechanisms**: Uses fallback folders when specific folder creation fails
+- **Degradação Elegante**: Sistema continua processando mesmo se itens individuais falharem
+- **Lógica de Retry**: Retry automático para falhas transitórias
+- **Logging Abrangente**: Informações detalhadas de erro para solução de problemas
+- **Mecanismos de Fallback**: Usa pastas de fallback quando a criação específica de pasta falha
 
-## Troubleshooting
+## Solução de Problemas
 
-### Common Issues
+### Problemas Comuns
 
-1. **Connection Errors**: Check Liferay instance availability and credentials
-2. **Permission Errors**: Verify user has necessary permissions in Liferay
-3. **Rate Limiting**: Adjust `BATCH_DELAY` if encountering rate limits
-4. **Memory Issues**: Reduce `BATCH_SIZE` for large datasets
+1. **Erros de Conexão**: Verificar disponibilidade da instância Liferay e credenciais
+2. **Erros de Permissão**: Verificar se o usuário tem permissões necessárias no Liferay
+3. **Limitação de Taxa**: Ajustar `BATCH_DELAY` se encontrar limites de taxa
+4. **Problemas de Memória**: Reduzir `BATCH_SIZE` para conjuntos de dados grandes
 
-### Debug Mode
+### Modo Debug
 
-Enable detailed logging by setting `DEV_MODE=True` in your `.env` file.
+Habilitar logging detalhado definindo `DEV_MODE=True` no seu arquivo `.env`.
 
-## Support
+## Suporte
 
-For issues and questions:
-1. Check the log files for detailed error information
-2. Verify environment configuration
-3. Ensure Liferay instance is accessible and properly configured
+Para problemas e questões:
+1. Verificar os arquivos de log para informações detalhadas de erro
+2. Verificar configuração de ambiente
+3. Garantir que a instância Liferay está acessível e adequadamente configurada
 
-## Version History
+## Histórico de Versões
 
-- **v1.0.0**: Initial release with professional architecture, comprehensive error handling, and full migration capabilities
+- **v1.0.0**: Lançamento inicial com arquitetura profissional, tratamento abrangente de erros e capacidades completas de migração
