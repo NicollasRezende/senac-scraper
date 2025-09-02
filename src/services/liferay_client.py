@@ -127,9 +127,19 @@ class LiferayClient:
         url = f"{self.config.base_url}/o/headless-delivery/v1.0/sites/{self.config.site_id}/{endpoint}"
         return await self._make_request('GET', url)
     
+    async def get_structured_content_folders_by_parent(self, parent_folder_id: int) -> Dict[str, Any]:
+        """Get structured content folders by parent ID - uses direct endpoint without site ID"""
+        url = f"{self.config.base_url}/o/headless-delivery/v1.0/structured-content-folders/{parent_folder_id}/structured-content-folders"
+        return await self._make_request('GET', url)
+    
     async def post(self, endpoint: str, data: Dict[str, Any]) -> Dict[str, Any]:
         """Generic POST request to Liferay API"""
         url = f"{self.config.base_url}/o/headless-delivery/v1.0/sites/{self.config.site_id}/{endpoint}"
+        return await self._make_request('POST', url, json=data)
+    
+    async def post_structured_content_folder_to_parent(self, parent_folder_id: int, data: Dict[str, Any]) -> Dict[str, Any]:
+        """Create structured content folder inside parent folder - uses direct endpoint without site ID"""
+        url = f"{self.config.base_url}/o/headless-delivery/v1.0/structured-content-folders/{parent_folder_id}/structured-content-folders"
         return await self._make_request('POST', url, json=data)
     
     async def put(self, endpoint: str, data: Dict[str, Any]) -> Dict[str, Any]:

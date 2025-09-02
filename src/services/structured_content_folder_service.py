@@ -20,8 +20,8 @@ class StructuredContentFolderInfo:
 class StructuredContentFolderService:
     def __init__(self, config: LiferayConfig):
         self.config = config
-        # Temporariamente vamos criar diretamente no site (sem pasta pai)
-        self.parent_folder_id = None  # getattr(config, 'structured_content_parent_folder_id', None)
+        # Usar a pasta pai configurada para structured content (pasta "Noticias")
+        self.parent_folder_id = getattr(config, 'structured_content_parent_folder_id', None)
     
     async def create_folder_for_news(self, client: LiferayClient, 
                                    news_title: str) -> Optional[StructuredContentFolderInfo]:
@@ -41,13 +41,15 @@ class StructuredContentFolderService:
             # Se não existe, cria uma nova
             # Se temos uma pasta pai configurada, criar dentro dela; senão criar no site
             if self.parent_folder_id:
-                endpoint = f"structured-content-folders/{self.parent_folder_id}/structured-content-folders"
-                payload = {
-                    "description": f"Pasta para a notícia: {news_title}",
-                    "name": folder_name,
-                    "parentStructuredContentFolderId": self.parent_folder_id,
-                    "viewableBy": "Anyone"
-                }
+                # Usar o endpoint específico para criar pasta filha
+                response = await client.post_structured_content_folder_to_parent(
+                    self.parent_folder_id, {
+                        "description": f"Pasta para a notícia: {news_title}",
+                        "name": folder_name,
+                        "parentStructuredContentFolderId": self.parent_folder_id,
+                        "viewableBy": "Anyone"
+                    }
+                )
             else:
                 endpoint = "structured-content-folders"
                 payload = {
@@ -55,9 +57,7 @@ class StructuredContentFolderService:
                     "name": folder_name,
                     "viewableBy": "Anyone"
                 }
-            
-            # Faz a requisição
-            response = await client.post(endpoint, payload)
+                response = await client.post(endpoint, payload)
             
             if response and 'id' in response:
                 folder_info = StructuredContentFolderInfo(
@@ -83,8 +83,15 @@ class StructuredContentFolderService:
         Procura uma pasta existente com o nome especificado
         """
         try:
-            # Lista todas as pastas do site
-            response = await client.get("structured-content-folders")
+            # Se temos uma pasta pai, lista as pastas filhas; senão lista as principais do site
+            if self.parent_folder_id:
+                # Endpoint para listar pastas filhas: /structured-content-folders/{parentId}/structured-content-folders  
+                endpoint = f"structured-content-folders/{self.parent_folder_id}/structured-content-folders"
+                response = await client.get_structured_content_folders_by_parent(self.parent_folder_id)
+            else:
+                # Lista todas as pastas do site
+                response = await client.get("structured-content-folders")
+            
             if response and 'items' in response:
                 for folder in response['items']:
                     if folder.get('name') == folder_name:
