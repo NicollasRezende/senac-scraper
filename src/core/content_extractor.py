@@ -28,45 +28,58 @@ class ContentExtractor:
         return element.get_text(strip=True) if element else None
     
     def extract_featured_image(self, soup: BeautifulSoup, base_url: str) -> Optional[str]:
+        # Try to find the main article image (usually the first large image in the content area)
+        main_content_area = soup.select_one('.elementor-col-66, .elementor-widget-theme-post-content')
+        if main_content_area:
+            # Look for the first image in the main content area
+            featured_img = main_content_area.select_one('img[src*="wp-content/uploads"]:not([src*="logo"]):not([src*="icon"])')
+            if featured_img and featured_img.get('src'):
+                return urljoin(base_url, featured_img['src'])
+        
+        # Fallback to original method
         element = soup.select_one(self.selectors['featured_image'])
-        if element and element.get('src'):
+        if element and element.get('src') and 'logo' not in element['src']:
             return urljoin(base_url, element['src'])
         return None
     
     def extract_content(self, soup: BeautifulSoup, base_url: str) -> Tuple[Optional[str], List[ImageData]]:
+        # Try to find the main content area more broadly
         container = soup.select_one(self.selectors['content_container'])
         if not container:
-            return None, []
+            # Fallback to broader content area
+            container = soup.select_one('.elementor-col-66, .elementor-section')
+            if not container:
+                return None, []
         
         content_images = []
         
-        individual_imgs = container.select('figure.wp-block-image img')
-        for img in individual_imgs:
+        # Extract images from the entire content area, not just specific containers
+        all_content_imgs = container.select('img[src*="wp-content/uploads"]:not([src*="logo"])')
+        for img in all_content_imgs:
             if img.get('src'):
+                # Determine image type based on parent elements
+                img_type = 'individual'
+                if img.find_parent('.wp-block-gallery'):
+                    img_type = 'gallery'
+                elif img.find_parent('.elementor-widget-image'):
+                    img_type = 'individual'
+                
                 img_data = ImageData(
                     src=urljoin(base_url, img['src']),
                     alt=img.get('alt', ''),
                     width=img.get('width'),
                     height=img.get('height'),
-                    type='individual'
+                    type=img_type
                 )
                 content_images.append(img_data)
         
-        gallery_imgs = container.select('.wp-block-gallery img')
-        for img in gallery_imgs:
-            if img.get('src'):
-                img_data = ImageData(
-                    src=urljoin(base_url, img['src']),
-                    alt=img.get('alt', ''),
-                    width=img.get('width'),
-                    height=img.get('height'),
-                    type='gallery'
-                )
-                content_images.append(img_data)
+        # Extract content HTML - look for the theme post content first
+        content_container = soup.select_one('.elementor-widget-theme-post-content')
+        if content_container:
+            elements = content_container.select('p, ul, ol, blockquote, h2, h3, h4, h5, h6, figure.wp-block-image, figure.wp-block-gallery')
+            if elements:
+                content_html = ''.join(str(element) for element in elements)
+                return content_html, content_images
         
-        elements = container.select('p, ul, ol, blockquote, h2, h3, h4, h5, h6, figure.wp-block-image, figure.wp-block-gallery')
-        if elements:
-            content_html = ''.join(str(element) for element in elements)
-            return content_html, content_images
-        
+        # Fallback - use the broader container
         return str(container), content_images

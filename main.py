@@ -9,19 +9,16 @@ def main():
         timeout=20
     )
     
-    url_config = UrlCollectorConfig(
-        delay=1.0,
-        start_page=1,
-        end_page=50
-    )
+    # Não precisa mais do url_config já que não vamos coletar URLs
+    scraper = SenacScraper(scraping_config)
     
-    scraper = SenacScraper(scraping_config, url_config)
-    
-    scraper.full_pipeline(
-        start_page=1,
-        end_page=50,
+    # Use scrape_batch ao invés de full_pipeline
+    # Isso vai ler do arquivo senac_urls.txt existente
+    scraper.scrape_batch(
+        urls_file='senac_urls.txt',  # nome do seu arquivo de URLs
         batch_size=30,
-        save_interval=5
+        save_interval=5,
+        output_file='noticias_final.json'
     )
 
 if __name__ == "__main__":
