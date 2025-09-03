@@ -1,0 +1,111 @@
+2025-09-03 10:13:36,311 - ContentMigrationSystem - INFO - Content Migration System initiated
+2025-09-03 10:13:36,311 - ContentMigrationSystem - INFO - Configuration: Development mode (max 3 items)
+2025-09-03 10:13:36,311 - ContentMigrationSystem - INFO - Development mode: Limited to 3 items
+2025-09-03 10:13:36,311 - ContentMigrationSystem - INFO - Loaded 3 items for processing
+2025-09-03 10:13:36,311 - ContentMigrationSystem - DEBUG - Processing: 3ª edição do Congresso Eduko...
+2025-09-03 10:13:43,660 - ContentMigrationSystem - INFO - Item 1/3: SUCCESS
+2025-09-03 10:13:45,663 - ContentMigrationSystem - DEBUG - Processing: Formatura da primeira etapa do Projeto Laudelina...
+2025-09-03 10:13:53,228 - ContentMigrationSystem - INFO - Item 2/3: SUCCESS
+2025-09-03 10:13:55,230 - ContentMigrationSystem - DEBUG - Processing: Aluno do Senac em Curvelo conquista prêmio...
+2025-09-03 10:14:00,538 - ContentMigrationSystem - INFO - Item 3/3: SUCCESS
+2025-09-03 10:14:00,539 - ContentMigrationSystem - INFO - Migration process completed
+2025-09-03 10:14:00,539 - ContentMigrationSystem - INFO - Total items: 3
+2025-09-03 10:14:00,541 - ContentMigrationSystem - INFO - Processed: 3
+2025-09-03 10:14:00,541 - ContentMigrationSystem - INFO - Successful: 3
+2025-09-03 10:14:00,541 - ContentMigrationSystem - INFO - Failed: 0
+2025-09-03 10:14:00,542 - ContentMigrationSystem - INFO - Success rate: 100.0%
+2025-09-03 10:14:00,542 - ContentMigrationSystem - INFO - Document folders created: 2
+2025-09-03 10:14:00,542 - ContentMigrationSystem - INFO - Documents uploaded: 4
+2025-09-03 10:14:00,542 - ContentMigrationSystem - INFO - Content folders created: 3
+2025-09-03 10:14:00,542 - ContentMigrationSystem - INFO - Structured contents created: 3
+2025-09-03 10:14:00,542 - ContentMigrationSystem - INFO - Processing time: 24.2 seconds
+2025-09-03 10:14:33,706 - ContentMigrationSystem - INFO - Content Migration System initiated
+2025-09-03 10:14:33,706 - ContentMigrationSystem - INFO - Configuration: Development mode (max 3 items)
+2025-09-03 10:14:33,707 - ContentMigrationSystem - INFO - Development mode: Limited to 3 items
+2025-09-03 10:14:33,707 - ContentMigrationSystem - INFO - Loaded 3 items for processing
+2025-09-03 10:14:33,707 - ContentMigrationSystem - DEBUG - Processing: 3ª edição do Congresso Eduko...
+2025-09-03 10:14:39,567 - ContentMigrationSystem - INFO - Item 1/3: SUCCESS
+2025-09-03 10:14:41,569 - ContentMigrationSystem - DEBUG - Processing: Formatura da primeira etapa do Projeto Laudelina...
+2025-09-03 10:14:49,926 - ContentMigrationSystem - INFO - Item 2/3: SUCCESS
+2025-09-03 10:14:51,929 - ContentMigrationSystem - DEBUG - Processing: Aluno do Senac em Curvelo conquista prêmio...
+2025-09-03 10:14:58,357 - ContentMigrationSystem - INFO - Item 3/3: SUCCESS
+2025-09-03 10:14:58,357 - ContentMigrationSystem - INFO - Migration process completed
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Total items: 3
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Processed: 3
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Successful: 3
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Failed: 0
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Success rate: 100.0%
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Document folders created: 3
+2025-09-03 10:14:58,358 - ContentMigrationSystem - INFO - Documents uploaded: 4
+2025-09-03 10:14:58,359 - ContentMigrationSystem - INFO - Content folders created: 3
+2025-09-03 10:14:58,359 - ContentMigrationSystem - INFO - Structured contents created: 3
+2025-09-03 10:14:58,359 - ContentMigrationSystem - INFO - Processing time: 24.7 seconds
+2025-09-03 10:16:22,874 - ContentMigrationSystem - INFO - Content Migration System initiated
+2025-09-03 10:16:22,874 - ContentMigrationSystem - INFO - Configuration: Production mode (all items)
+2025-09-03 10:16:22,875 - ContentMigrationSystem - INFO - Loaded 9 items for processing
+2025-09-03 10:16:28,477 - ContentMigrationSystem - INFO - Item 1/9: SUCCESS
+2025-09-03 10:16:37,704 - ContentMigrationSystem - INFO - Item 2/9: SUCCESS
+2025-09-03 10:16:48,239 - ContentMigrationSystem - INFO - Item 3/9: SUCCESS
+2025-09-03 10:16:58,505 - ContentMigrationSystem - WARNING - Item 4/9: FAILED - Content creation failed: Structured content creation returned no result
+2025-09-03 10:17:07,372 - ContentMigrationSystem - WARNING - Item 5/9: FAILED - Content creation failed: Structured content creation returned no result
+2025-09-03 10:17:17,577 - ContentMigrationSystem - INFO - Item 6/9: SUCCESS
+2025-09-03 10:17:27,578 - ContentMigrationSystem - WARNING - Item 7/9: FAILED - Content creation failed: Structured content creation returned no result
+2025-09-03 10:17:35,788 - ContentMigrationSystem - INFO - Item 8/9: SUCCESS
+2025-09-03 10:17:44,449 - ContentMigrationSystem - INFO - Item 9/9: SUCCESS
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Migration process completed
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Total items: 9
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Processed: 9
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Successful: 6
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Failed: 3
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Success rate: 66.7%
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Document folders created: 9
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Documents uploaded: 10
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Content folders created: 9
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Structured contents created: 6
+2025-09-03 10:17:44,450 - ContentMigrationSystem - INFO - Processing time: 81.6 seconds
+2025-09-03 10:20:36,791 - ContentMigrationSystem - INFO - Content Migration System initiated
+2025-09-03 10:20:36,791 - ContentMigrationSystem - INFO - Configuration: Production mode (all items)
+2025-09-03 10:20:36,792 - ContentMigrationSystem - INFO - Loaded 9 items for processing
+2025-09-03 10:20:44,007 - ContentMigrationSystem - INFO - Item 1/9: SUCCESS
+2025-09-03 10:20:59,009 - ContentMigrationSystem - INFO - Item 2/9: SUCCESS
+2025-09-03 10:21:08,513 - ContentMigrationSystem - INFO - Item 3/9: SUCCESS
+2025-09-03 10:21:17,956 - ContentMigrationSystem - INFO - Item 4/9: SUCCESS
+2025-09-03 10:21:26,425 - ContentMigrationSystem - INFO - Item 5/9: SUCCESS
+2025-09-03 10:21:35,260 - ContentMigrationSystem - INFO - Item 6/9: SUCCESS
+2025-09-03 10:21:45,088 - ContentMigrationSystem - INFO - Item 7/9: SUCCESS
+2025-09-03 10:21:53,641 - ContentMigrationSystem - INFO - Item 8/9: SUCCESS
+2025-09-03 10:22:04,209 - ContentMigrationSystem - INFO - Item 9/9: SUCCESS
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Migration process completed
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Total items: 9
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Processed: 9
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Successful: 9
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Failed: 0
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Success rate: 100.0%
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Document folders created: 9
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Documents uploaded: 10
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Content folders created: 9
+2025-09-03 10:22:04,210 - ContentMigrationSystem - INFO - Structured contents created: 9
+2025-09-03 10:22:04,211 - ContentMigrationSystem - INFO - Processing time: 87.4 seconds
+2025-09-03 10:57:03,940 - ContentMigrationSystem - INFO - Content Migration System initiated
+2025-09-03 10:57:03,940 - ContentMigrationSystem - INFO - Configuration: Production mode (all items)
+2025-09-03 10:57:03,941 - ContentMigrationSystem - INFO - Loaded 9 items for processing
+2025-09-03 10:57:10,059 - ContentMigrationSystem - INFO - Item 1/9: SUCCESS
+2025-09-03 10:57:21,687 - ContentMigrationSystem - INFO - Item 2/9: SUCCESS
+2025-09-03 10:57:29,261 - ContentMigrationSystem - INFO - Item 3/9: SUCCESS
+2025-09-03 10:57:38,044 - ContentMigrationSystem - INFO - Item 4/9: SUCCESS
+2025-09-03 10:57:46,568 - ContentMigrationSystem - INFO - Item 5/9: SUCCESS
+2025-09-03 10:57:54,574 - ContentMigrationSystem - INFO - Item 6/9: SUCCESS
+2025-09-03 10:58:01,975 - ContentMigrationSystem - INFO - Item 7/9: SUCCESS
+2025-09-03 10:58:09,918 - ContentMigrationSystem - INFO - Item 8/9: SUCCESS
+2025-09-03 10:58:18,616 - ContentMigrationSystem - INFO - Item 9/9: SUCCESS
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Migration process completed
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Total items: 9
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Processed: 9
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Successful: 9
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Failed: 0
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Success rate: 100.0%
+2025-09-03 10:58:18,617 - ContentMigrationSystem - INFO - Document folders created: 9
+2025-09-03 10:58:18,618 - ContentMigrationSystem - INFO - Documents uploaded: 10
+2025-09-03 10:58:18,618 - ContentMigrationSystem - INFO - Content folders created: 9
+2025-09-03 10:58:18,618 - ContentMigrationSystem - INFO - Structured contents created: 9
+2025-09-03 10:58:18,618 - ContentMigrationSystem - INFO - Processing time: 74.7 seconds

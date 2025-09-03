@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 from pathlib import Path
 from src.services.liferay_client import LiferayClient
 from src.config.liferay_config import LiferayConfig
+from src.core.content_extractor import ContentExtractor
 
 
 logger = logging.getLogger(__name__)
@@ -16,6 +17,7 @@ class StructuredContentService:
         self.config = config
         self.content_structure_id = config.content_structure_id or 40374
         self.uploaded_images: Dict[int, Dict[str, int]] = {}  # folder_id -> {url: document_id}
+        self.content_extractor = ContentExtractor()
     
     async def create_news_content(self, client: LiferayClient, folder_id: int,
                                 news_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
@@ -190,18 +192,13 @@ class StructuredContentService:
         Prepara o HTML do conteúdo da notícia
         """
         content = news_data.get('content', '')
-        author = news_data.get('author', 'Autor não informado')
-        date = news_data.get('date', 'Data não informada')
+        url = news_data.get('url', '')
         
-        # Adiciona informações do autor e data no início
-        header_html = f"""
-        <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
-            <p><strong>Autor:</strong> {author}</p>
-            <p><strong>Data:</strong> {date}</p>
-        </div>
-        """
+        # Sanitiza o conteúdo para remover referências problemáticas
+        if content and url:
+            content = self.content_extractor.sanitize_content_for_liferay(content, url)
         
-        return header_html + content
+        return content
     
     def _format_date(self, date_str: str) -> str:
         """
