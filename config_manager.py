@@ -46,6 +46,7 @@ class ContentStructureConfig:
     document_parent_folder_id: int
     structured_content_parent_folder_id: int
     content_structure_id: int
+    documents_root_folder_id: int
     
     
 @dataclass
@@ -81,7 +82,8 @@ class ConfigurationManager:
         'LIFERAY_PASSWORD',
         'LIFERAY_PARENT_FOLDER_ID',
         'STRUCTURED_CONTENT_PARENT_FOLDER_ID',
-        'STRUCTURED_CONTENT_STRUCTURE_ID'
+        'STRUCTURED_CONTENT_STRUCTURE_ID',
+        'DOCUMENTS_ROOT_FOLDER_ID'
     ]
     
     @classmethod
@@ -117,7 +119,8 @@ class ConfigurationManager:
             content_structure_config = ContentStructureConfig(
                 document_parent_folder_id=int(os.getenv('LIFERAY_PARENT_FOLDER_ID')),
                 structured_content_parent_folder_id=int(os.getenv('STRUCTURED_CONTENT_PARENT_FOLDER_ID')),
-                content_structure_id=int(os.getenv('STRUCTURED_CONTENT_STRUCTURE_ID'))
+                content_structure_id=int(os.getenv('STRUCTURED_CONTENT_STRUCTURE_ID')),
+                documents_root_folder_id=int(os.getenv('DOCUMENTS_ROOT_FOLDER_ID'))
             )
             
             processing_config = ProcessingConfig(
